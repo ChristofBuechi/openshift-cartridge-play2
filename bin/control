@@ -2,6 +2,9 @@
 
 function start {
     cd $OPENSHIFT_REPO_DIR
+   export JAVA_HOME=/etc/alternatives/java_sdk_1.8.0
+   mkdir -p ${OPENSHIFT_REPO_DIR}env
+   echo $JAVA_HOME > ${OPENSHIFT_REPO_DIR}env/JAVA_HOME
     # build on first time
     [ -d target ] || build
     rm -f target/universal/stage/RUNNING_PID
